@@ -1,0 +1,9 @@
+$ crontab -l
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=yongjun.chee@email.com
+HOME=/data/hybris_data/prod/dump/
+
+0 4 * * * /data/hybris_data/prod/dump/create_dump_files_store_001.sh >> log/dump.log
+# there are 3 hours gap to give another script to download dump files
+0 7 * * * /data/hybris_data/prod/dump/remove_dump_files_store_001.sh >> log/dump.log
