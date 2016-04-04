@@ -10,10 +10,10 @@ echo [$(date +"%Y-%m-%d %T")] tcServer PID: $TCINSTANCEID
 jmap -dump:file=$WORKING_PATH/heapdump-$DATE.bin $TCINSTANCEID
 
 # Create thread dump
-jstack $TCINSTANCEID >> $WORKING_PATH/threaddumps-$DATE.log
+jstack $TCINSTANCEID >> $WORKING_PATH/threaddump-$DATE.log
 
 cd $WORKING_PATH
-gzip -f heapdump-$DATE.bin threaddumps-$DATE.log
+gzip -f heapdump-$DATE.bin threaddump-$DATE.log
 chmod 744 *
 
 echo [$(date +"%Y-%m-%d %T")] dump script ended
